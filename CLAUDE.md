@@ -1,5 +1,19 @@
 # Claude Code Enhanced Memory System
 
+## 🏗️ Backend Development Rules
+**MANDATORY**: All backend development MUST follow the rules defined in `claude_backend_rules.md`
+
+### Quick Reference:
+- **Architecture**: Node.js/Express with Sequelize ORM
+- **Naming**: snake_case for files, PascalCase for classes
+- **Models**: MT prefix, UUID primary keys, inline associations
+- **Controllers**: Export instantiated classes, use MessageHelper
+- **Services**: Database transactions, ResponseError handling
+- **Validation**: express-validator with sanitization
+- **Authentication**: JWT with authMuatpartsRequired middleware
+
+**⚠️ CRITICAL**: Read `claude_backend_rules.md` before generating any backend code!
+
 ## 🚨 Critical Memory Management
 
 ### **Mandatory After Every Response:**
@@ -77,11 +91,12 @@ When user uses commands above, respond with:
 3. Show what was added
 4. Confirm updates saved
 
-## 📋 File Inclusion Priority
-Always read these files in order:
+## 📋 File Inclusion Priority (MANDATORY)
+MUST ALWAYS read these files in order:
 1. project_memory.md (project context)
 2. session_state.json (current session)
 3. CLAUDE.md (this file)
+4. claude_backend_rules.md (backend-specific rules - MANDATORY)
 
 ## 🚨 Critical Rules
 - NEVER skip asking about memory updates
