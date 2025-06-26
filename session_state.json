@@ -1,0 +1,57 @@
+{
+  "project_name": "MuaTrans",
+  "session_id": "session_20240625_002",
+  "last_updated": "2024-06-25T15:00:00Z",
+  "current_task": {
+    "name": "Implementasi API Pemberian Rating Driver",
+    "status": "IN_PROGRESS",
+    "progress_percent": 0,
+    "can_resume": true
+  },
+  "completed_tasks": [
+    {
+      "name": "Analisis Struktur Proyek",
+      "status": "COMPLETED",
+      "completion_time": "2024-06-24T11:45:00Z"
+    },
+    {
+      "name": "Pembuatan Memori Proyek",
+      "status": "COMPLETED",
+      "completion_time": "2024-06-24T12:00:00Z"
+    },
+    {
+      "name": "Dokumentasi Proyek",
+      "status": "COMPLETED",
+      "completion_time": "2024-06-24T12:00:00Z"
+    },
+    {
+      "name": "Implementasi API Review Driver",
+      "status": "COMPLETED",
+      "completion_time": "2024-06-25T10:00:00Z",
+      "files_modified": [
+        "src/controller/order/order.controller.js",
+        "src/services/order/order.service.js",
+        "src/routes/v1/orders/order.js",
+        "src/validation/order/order.validation.js"
+      ]
+    },
+    {
+      "name": "Refaktor API Review Driver",
+      "status": "COMPLETED",
+      "completion_time": "2024-06-25T15:00:00Z",
+      "files_modified": [
+        "src/controller/order/review.controller.js",
+        "src/services/order/review.service.js",
+        "src/routes/v1/orders/order.js",
+        "src/controller/order/order.controller.js",
+        "src/services/order/order.service.js"
+      ],
+      "description": "Memisahkan logika review dari order controller/service ke review controller/service untuk meningkatkan maintainability"
+    }
+  ],
+  "next_tasks": [
+    "Implementasi API Pemberian Rating Driver",
+    "Integrasi Pembayaran",
+    "Optimasi Performa"
+  ]
+}
