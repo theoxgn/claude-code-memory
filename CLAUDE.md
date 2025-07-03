@@ -11,6 +11,7 @@
 - **Services**: Database transactions, ResponseError handling
 - **Validation**: express-validator with sanitization
 - **Authentication**: JWT with authMuatpartsRequired middleware
+- **Testing**: Section 15 in claude_backend_rules.md - MANDATORY comprehensive testing standards
 
 **⚠️ CRITICAL**: Read `claude_backend_rules.md` before generating any backend code!
 
@@ -128,8 +129,12 @@ Use these EXACT phrases to trigger memory updates:
    - Include proper error handling and transactions
 
 6. **✅ VALIDATION & TESTING:**
-   - Test implementation matches API contract exactly
-   - Verify business rules are correctly applied
+   - **UNIT TESTING (MANDATORY):** Follow Section 18 standards in claude_backend_rules.md and Unit Testing Workflow (MANDATORY) in this document
+     - Create comprehensive test suite (Service, Route, Integration, KO Rules)
+     - Use real PostgreSQL models (NOT mocks)
+     - Test with UNITTEST prefix for data isolation
+     - Verify all positive and negative test cases
+     - Test multi-language support and business rules compliance
    - **SYSTEMATIC DEBUGGING PROTOCOL:**
      1. Read error message completely
      2. Trace back to model/enum definition
@@ -156,6 +161,70 @@ Use these EXACT phrases to trigger memory updates:
 - **If assumption detected** → STOP and verify with source files
 - **If verification incomplete** → CANNOT proceed to implementation
 - **If error occurs** → Systematic debugging protocol (one error at a time)
+
+### **🧪 Unit Testing Workflow (MANDATORY):**
+**Trigger:** When user asks for unit tests: `"create unit test untuk api [endpoint]"`
+
+**📝 TESTING PROTOCOL:**
+- **MUST RESPOND:** "Creating comprehensive unit test suite following Section 18 standards..."
+- **MUST IMPLEMENT:** All 5 test layers (Service, Route, Integration, KO Business Rules, Security)
+- **MUST USE:** Real PostgreSQL models with existing database connections
+- **MUST FOLLOW:** UNITTEST prefix pattern for test data isolation
+
+**CRITICAL TESTING STEPS (Must be followed in exact order):**
+
+**🔍 PRE-TEST VALIDATION (MANDATORY):**
+1. **📋 Implementation Verification:**
+
+   - ✅ **Core Dependencies:** Read and understand all require() statements from implementation files
+   - ✅ Verify API sudah fully implemented dan berjalan
+   - ✅ Check database models dan associations sudah benar  
+   - ✅ Verify API contract compliance dengan manual testing
+   - ✅ Confirm business rules sudah terimplementasi
+   - **CHECKPOINT:** Implementation validated before testing
+
+2. **🛠️ Test Environment Setup:**
+   - ✅ Database connection configuration verified
+   - ✅ Test database isolation (separate from dev/prod)
+   - ✅ Required dependencies installation checked
+   - ✅ Environment variables for testing configured
+   - **CHECKPOINT:** Test environment ready
+
+**🧪 CORE TESTING EXECUTION:**
+3. **📋 Test Standards Review:** Read claude_backend_rules.md Section 18 standards
+4. **🏗️ Test Structure Creation:** Create 5 test layers with proper Jest hooks
+5. **🔧 Database Integration:** Use real models with UNITTEST cleanup pattern
+6. **🌐 Language Testing:** Test with valid UUID language IDs (not string codes)
+7. **📊 KO Compliance:** Test all business rules from KO documentation
+
+**🔄 TEST EXECUTION WORKFLOW:**
+8. **Setup Phase** → Database cleanup + test data preparation
+9. **Service Layer** → Test business logic dalam isolasi
+10. **Route Layer** → Test HTTP endpoints dengan supertest
+11. **Integration** → Test end-to-end flow
+12. **KO Compliance** → Test setiap business rule dari KO docs
+13. **Security** → Test attack vectors dan vulnerabilities
+14. **Cleanup Phase** → Verify no test data tersisa
+
+**🚨 FAILURE HANDLING PROTOCOL:**
+15. **Test Failure Analysis:**
+    - ✅ Analyze failure root cause
+    - ✅ Check if implementation vs test mismatch
+    - ✅ Verify database state dan cleanup
+    - ✅ Fix ONE test at a time
+    - ✅ Re-run specific test layer
+    - ✅ Document lesson learned
+    - **CHECKPOINT:** All failures resolved systematically
+
+**⚡ PERFORMANCE TESTING (OPTIONAL):**
+16. **Performance Validation:**
+    - Response time benchmarks (< 200ms for CRUD)
+    - Database query optimization checks
+    - Memory usage monitoring
+    - Concurrent request handling (10+ requests)
+    - **CHECKPOINT:** Performance standards met
+
+17. **✅ Final Verification:** Run complete test suite and fix any remaining issues
 
 ### **Auto-Prompt Triggers:**
 When user says these phrases, automatically offer memory update:
